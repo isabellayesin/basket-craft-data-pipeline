@@ -17,3 +17,4 @@ stg_orders AS (
 )
 SELECT * FROM stg_orders
 
+

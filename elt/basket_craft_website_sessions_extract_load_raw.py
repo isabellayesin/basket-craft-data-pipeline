@@ -60,7 +60,8 @@ df = pd.read_sql(
 
 # %%
 #write dataframe to products table in postgres (raw schema)
-df.to_sql('website_sessions', pg_engine, schema='raw', if_exists='replace', index=False)
+df.to_sql('website_sessions', pg_engine, schema='raw', if_exists='append', index=False)
+
 
 # %%
 print(f'{len(df)} records loaded into psogres into orders table.')

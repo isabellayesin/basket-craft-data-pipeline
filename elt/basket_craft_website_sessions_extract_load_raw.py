@@ -49,13 +49,18 @@ pg_engine = create_engine(pg_conn_str)
 
 # %%
 # read orders from mysql
-df = pd.read_sql('SELECT * FROM orders', mysql_engine)
+# Read website_sessions from MySQL for December 2023
+df = pd.read_sql(
+    "SELECT * FROM website_sessions WHERE created_at BETWEEN '2023-12-01' AND '2023-12-31 23:59:59';",
+    mysql_engine
+)
+
 # %%
 # df
 
 # %%
 #write dataframe to products table in postgres (raw schema)
-df.to_sql('orders', pg_engine, schema='raw', if_exists='replace', index=False)
+df.to_sql('website_sessions', pg_engine, schema='raw', if_exists='replace', index=False)
 
 # %%
 print(f'{len(df)} records loaded into psogres into orders table.')

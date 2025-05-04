@@ -55,7 +55,7 @@ df = pd.read_sql('SELECT * FROM orders', mysql_engine)
 
 # %%
 #write dataframe to products table in postgres (raw schema)
-df.to_sql('orders', pg_engine, schema='raw', if_exists='replace', index=False)
+df.to_sql('orders', pg_engine, schema='raw', if_exists='append', index=False)
 
 # %%
 print(f'{len(df)} records loaded into psogres into orders table.')

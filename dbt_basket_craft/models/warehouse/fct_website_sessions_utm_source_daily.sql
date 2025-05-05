@@ -1,6 +1,5 @@
 {{ config(materialized='table') }}
 
-
 SELECT
   DATE(website_session_created_at) AS website_session_day,
   utm_source,
@@ -10,4 +9,5 @@ SELECT
 FROM {{ ref('stg_website_sessions') }}
 GROUP BY DATE(website_session_created_at), utm_source
 ORDER BY website_session_day, utm_source;
+
 

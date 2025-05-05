@@ -18,4 +18,4 @@ stg_website_sessions AS (
   FROM website_sessions
 )
 
-SELECT * FROM stg_website_sessions;
+SELECT * FROM stg_website_sessions

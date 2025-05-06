@@ -4,6 +4,7 @@ sources:
   - name: basket_craft
     database: basket_craft
     schema: raw
+
     tables:
       - name: products
         columns:
@@ -27,3 +28,21 @@ sources:
           - name: product_id
           - name: order_date
           - name: quantity
+
+      - name: website_sessions
+        description: Raw website session tracking data
+        columns:
+          - name: website_session_id
+            description: Primary key for website sessions
+            tests:
+              - unique
+              - not_null
+          - name: website_session_created_at
+          - name: user_id
+          - name: device_type
+          - name: http_referer
+          - name: utm_source
+          - name: utm_campaign
+          - name: utm_content
+          - name: is_repeat_session
+          - name: loaded_at

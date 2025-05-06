@@ -64,5 +64,6 @@ df.to_sql('website_sessions', pg_engine, schema='raw', if_exists='append', index
 
 
 # %%
-print(f'{len(df)} records loaded into psogres into orders table.')
+print(f'{len(df)} records loaded into postgres into raw.website_sessions table.')
+
 
